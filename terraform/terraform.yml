@@ -55,4 +55,4 @@
           state: present
       when:
         - ansible_os_family == "RedHat"
-        # - ansible_distribution == "CentOS"
+        - ansible_distribution == "CentOS"
