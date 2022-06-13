@@ -46,14 +46,14 @@
             gpgcheck: true
             gpgkey: https://rpm.releases.hashicorp.com/gpg
 
-        - name: Install packages and terraform
-          become: true
-          yum:
-            name:
-              - yum-utils
-              - curl
-              - terraform
-            state: present
+        # - name: Install packages and terraform
+        #   become: true
+        #   yum:
+        #     name:
+        #       - yum-utils
+        #       - curl
+        #       - terraform
+        #     state: present
       when:
         - ansible_os_family == "RedHat"
       
