@@ -64,13 +64,13 @@
       #   become: true
       #   raw: "yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo"
        
-      # - name: Install packages and terraform
-      #   become: true
-      #   yum:
-      #     name:
-      #       - yum-utils
-      #       - curl
-      #       - terraform
+      - name: Install packages and terraform
+        become: true
+        yum:
+          name:
+            - yum-utils
+            - curl
+            # - terraform
       #     state: present
       when:
         - ansible_os_family == "RedHat"
