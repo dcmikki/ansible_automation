@@ -48,14 +48,14 @@
       #       repo: "deb [arch=amd64] https://apt.releases.hashicorp.com focal main"
       #       state: present
 
-        - name: Install packages and terraform
-          become: true
-          yum:
-            name:
-              - yum-utils
-              - curl
-              # - terraform
-            state: present
+          - name: Install packages and terraform
+            become: true
+            yum:
+              name:
+                - yum-utils
+                - curl
+                # - terraform
+              state: present
       when:
         - ansible_os_family == "RedHat"
       
