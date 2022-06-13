@@ -55,11 +55,10 @@
         - ansible_distribution_major_version == "8"
       
     - block:
-      # - name: Update the YUM Package Cache
-      #   become: true
-      #   yum:
-      #     update_cache: true   
-
+      - name: Update the YUM Package Cache
+        become: true
+        yum:
+          update_cache: true   
       - name: Add Hashicorp Repo to CentOS
         become: true
         yum_repository:
@@ -69,7 +68,6 @@
           enabled: true
           gpgcheck: true
           gpgkey: "https://rpm.releases.hashicorp.com/gpg"
-       
       - name: Install packages and terraform
         become: true
         yum:
@@ -82,5 +80,3 @@
         - ansible_os_family == "RedHat"
         - ansible_distribution == "CentOS"
         - ansible_distribution_major_version == "7"
-
-      
