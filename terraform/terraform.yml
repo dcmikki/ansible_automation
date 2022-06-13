@@ -30,4 +30,32 @@
               - terraform
       when:
         - ansible_os_family == "Debian"
+
+      - block:
+      #   - name: Update the APT Package Cache
+      #     become: true
+      #     apt:
+      #       update_cache: true
+      #       cache_valid_time: 3600
+      #   - name: Add Hashicorp signing key
+      #     become: true
+      #     apt_key:
+      #       url: "https://apt.releases.hashicorp.com/gpg"
+      #       state: present
+      #   - name: Add the Hashicorp Repo to Ubuntu
+      #     become: true
+      #     apt_repository:
+      #       repo: "deb [arch=amd64] https://apt.releases.hashicorp.com focal main"
+      #       state: present
+
+        - name: Install packages and terraform
+          become: true
+          yum:
+            name:
+              - yum-utils
+              - curl
+              # - terraform
+            state: present
+      when:
+        - ansible_os_family == "RedHat"
       
