@@ -1,5 +1,5 @@
 ---
-- name: Setup Terraform on New Ubuntxu 20.04 System
+- name: Setup Terraform on Debian, CentOS systems
   hosts: localhost
   gather_facts: true
   tasks:
