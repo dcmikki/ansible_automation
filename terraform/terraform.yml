@@ -31,7 +31,7 @@
       when:
         - ansible_os_family == "Debian"
 
-      - block:
+    - block:
       #   - name: Update the APT Package Cache
       #     become: true
       #     apt:
