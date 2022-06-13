@@ -35,10 +35,7 @@
         - name: Update the YUM Package Cache
           become: true
           yum:
-            update_cache: true  
-
-        - name: Bootstrap a host without python2 installed
-          raw: dnf install -y python2 python2-dnf libselinux-python  
+            update_cache: true   
 
         - name: Add Hashicorp Repo to CentOS
           become: true
