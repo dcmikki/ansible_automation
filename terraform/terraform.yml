@@ -43,6 +43,7 @@
             name: Hashicorp
             description: Hashicorp official RPM repos
             baseurl: https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+            gpgcheck: yes
             enabled: yes
 
 
