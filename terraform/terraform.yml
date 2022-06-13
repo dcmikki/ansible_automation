@@ -56,3 +56,31 @@
       when:
         - ansible_os_family == "RedHat"
         - ansible_distribution == "CentOS"
+
+    - block:
+      - name: Update the YUM Package Cache
+        become: true
+        yum:
+          update_cache: true   
+      - name: Add Hashicorp Repo to Fedora
+        become: true
+        yum_repository:
+          name: Hashicorp
+          description: Hashicorp repository
+          baseurl: "https://rpm.releases.hashicorp.com/fedora/$releasever/$basearch/stable"
+          enabled: true
+          gpgcheck: true
+          gpgkey: "https://rpm.releases.hashicorp.com/gpg"
+      - name: Install packages and terraform
+        become: true
+        yum:
+          name:
+            - yum-utils
+            - curl
+            - terraform
+          state: present
+      when:
+        - ansible_os_family == "RedHat"
+        - ansible_distribution == "Fedora"
+    
+
