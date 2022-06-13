@@ -10,7 +10,7 @@
         update_cache: true
         cache_valid_time: 3600
       when:
-        - ansible_distribution == "CentOS"
+        - ansible_os_family == "Debian"
         - ansible_distribution_major_version == "6"
 
     - name: Add Hashicorp signing key
@@ -19,7 +19,7 @@
         url: "https://apt.releases.hashicorp.com/gpg"
         state: present
       when:
-        - ansible_distribution == "CentOS"
+        - ansible_os_family == "Debian"
         - ansible_distribution_major_version == "6"
 
     
