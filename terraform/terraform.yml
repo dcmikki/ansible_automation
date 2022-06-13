@@ -41,6 +41,7 @@
           become: true
           yum_repository:
             name: Hashicorp
+            description: Hashicorp official RPM repos
             baseurl: https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
             enabled: yes
 
