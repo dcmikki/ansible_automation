@@ -43,6 +43,13 @@
             key: https://apt.releases.hashicorp.com/gpg"
             state: present
 
+        - name: Add Some repo
+          yum_repository:
+            name: Hashicorp
+            description: Add Hashicorp Repo to CentOS
+            baseurl: https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+            enabled: yes
+
 
       #   - name: Add Hashicorp signing key
       #     become: true
