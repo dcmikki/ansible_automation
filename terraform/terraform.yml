@@ -32,10 +32,10 @@
         - ansible_os_family == "Debian"
 
     - block:
-        - name: Update the YUM Package Cache
-          become: true
-          yum:
-            update_cache: true
+        # - name: Update the YUM Package Cache
+        #   become: true
+        #   yum:
+        #     update_cache: true
 
     
         - name: Add Hashicorp Repo to CentOS
