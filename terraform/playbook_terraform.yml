@@ -11,8 +11,7 @@
         cache_valid_time: 3600
       when:
         - ansible_os_family == "Debian"
-        - ansible_distribution_major_version == "6"
-
+    
     - name: Add Hashicorp signing key
       become: true
       apt_key:
@@ -20,8 +19,7 @@
         state: present
       when:
         - ansible_os_family == "Debian"
-        - ansible_distribution_major_version == "6"
-
+    
     
     # - name: Add the Hashicorp Repo to Ubuntu
     #   become: true
@@ -38,26 +36,3 @@
     #       - curl
     #       - terraform
     
-
-
-
-
-    # - name: We create the directory for terraform porject
-    #   file:
-    #     path: "{{ lookup('env', 'HOME') }}/terraform/"
-    #     state: directory
-    # -
-    #  name: We create the web directory to store content
-    #   file:
-    #     path: "{{ lookup('env', 'HOME') }}/terraform/web"
-    #     state: directory
-    
-    # - name: We copy the main.tf terraform file from the course repo
-    #   copy:
-    #     src: "{{ lookup('env', 'HOME') }}/comptia-automation/terraform/main.tf"
-    #     dest: "{{ lookup('env', 'HOME') }}/terraform/main.tf"
-    
-    # - name: Create the index page for the website
-    #   copy:
-    #     dest: "{{ lookup('env', 'HOME') }}/terraform/web/index.html"
-    #     content: This is my web page
