@@ -1,5 +1,5 @@
 ---
-- name: Setup Terraform on Debian, CentOS systems
+- name: Setup Terraform on Debian, CentOS, Fedora systems
   hosts: localhost
   gather_facts: true
   tasks:
@@ -83,4 +83,3 @@
         - ansible_os_family == "RedHat"
         - ansible_distribution == "Fedora"
     
-
