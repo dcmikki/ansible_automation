@@ -10,5 +10,8 @@ curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/
 echo "Install terraform from .tfswitchrc"
 tfswitch `cat .tfswitchrc`
 
+echo "append home terraform path to PATH"
+export PATH=$PATH:/home/vagrant/bin
+
 echo "terraform version"
 terraform version
