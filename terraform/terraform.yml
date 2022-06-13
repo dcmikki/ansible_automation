@@ -65,7 +65,7 @@
         yum_repository:
           name: Hashicorp
           description: Hashicorp repository
-          baseurl: "https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo"
+          baseurl: "https://rpm.releases.hashicorp.com/RHEL/$releasever/$basearch/stable"
           enabled: true
           gpgcheck: true
           gpgkey: "https://rpm.releases.hashicorp.com/gpg"
