@@ -37,10 +37,10 @@
           yum:
             update_cache: true
 
-        - name: Add Some repo
+        - name: Add Hashicorp Repo to CentOS
+          become: true
           yum_repository:
             name: Hashicorp
-            description: Add Hashicorp Repo to CentOS
             baseurl: https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
             enabled: yes
 
