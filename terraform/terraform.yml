@@ -44,8 +44,8 @@
             name: Hashicorp Stable
             baseurl: https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
             enabled: true
-            gpgcheck: true
-            gpgkey: https://rpm.reelases.hashicorp.com/gpg
+            # gpgcheck: true
+            # gpgkey: https://rpm.reelases.hashicorp.com/gpg
 
 
 
