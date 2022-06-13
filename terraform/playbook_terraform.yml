@@ -3,17 +3,25 @@
   hosts: localhost
   gather_facts: true
   tasks:
+
     - name: Update the APT Package Cache
       become: true
       apt:
         update_cache: true
         cache_valid_time: 3600
+      when:
+        - ansible_distribution == "CentOS"
+        - ansible_distribution_major_version == "6"
 
     - name: Add Hashicorp signing key
       become: true
       apt_key:
         url: "https://apt.releases.hashicorp.com/gpg"
         state: present
+      when:
+        - ansible_distribution == "CentOS"
+        - ansible_distribution_major_version == "6"
+
     
     # - name: Add the Hashicorp Repo to Ubuntu
     #   become: true
