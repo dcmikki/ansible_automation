@@ -79,6 +79,3 @@
       when:
         - ansible_os_family == "RedHat"
         - ansible_distribution == "CentOS"
-        - ansible_distribution_major_version == "7"
-
-      
