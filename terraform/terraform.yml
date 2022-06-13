@@ -55,13 +55,13 @@
         - ansible_distribution_major_version == "8"
       
     - block:
-      - name: Update the YUM Package Cache
-        become: true
-        yum:
-          update_cache: true   
-
+      # - name: Update the YUM Package Cache
+      #   become: true
+      #   yum:
+      #     update_cache: true   
 
       - name: Add Hashicorp Repo to CentOS
+        become: true
         yum_repository:
           name: Hashicorp
           description: Hashicorp repository
