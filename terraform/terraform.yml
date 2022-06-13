@@ -44,7 +44,7 @@
             description: Hashicorp official RPM repos
             baseurl: https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
             gpgcheck: yes
-            enabled: yes
+            gpgkey: file:///etc/pki/gpg-key
 
 
       #   - name: Add Hashicorp signing key
