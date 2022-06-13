@@ -20,15 +20,14 @@
           apt_repository:
             repo: "deb [arch=amd64] https://apt.releases.hashicorp.com focal main"
             state: present
+        - name: Install packages and terraform
+          become: true
+          package:
+            name:
+              - gnupg
+              - software-properties-common
+              - curl
+              - terraform
       when:
         - ansible_os_family == "Debian"
       
-    # - name: Install software from standard repos and hashicorp
-    #   become: true
-    #   package:
-    #     name:
-    #       - gnupg
-    #       - software-properties-common
-    #       - curl
-    #       - terraform
-    
