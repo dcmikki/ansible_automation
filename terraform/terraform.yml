@@ -67,8 +67,8 @@
           description: Hashicorp repository
           baseurl: "https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo"
           enabled: true
-          # gpgcheck: true
-          # gpgkey: "https://download.docker.com/linux/{{ mydistribution }}/gpg"
+          gpgcheck: true
+          gpgkey: "https://rpm.releases.hashicorp.com/gpg"
 
       # - name: Add Hashicorp Repo to CentOS
       #   become: true
