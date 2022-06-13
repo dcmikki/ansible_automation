@@ -32,12 +32,10 @@
         - ansible_os_family == "Debian"
 
     - block:
-        # - name: Update the YUM Package Cache
-        #   become: true
-        #   yum:
-        #     update_cache: true
-
-    
+        - name: Update the YUM Package Cache
+          become: true
+          yum:
+            update_cache: true    
         - name: Add Hashicorp Repo to CentOS
           become: true
           yum_repository:
@@ -48,36 +46,13 @@
             gpgcheck: true
             gpgkey: https://rpm.releases.hashicorp.com/gpg
 
-
-
-        # - name: Add Hashicorp Repo to CentOS
-        #   become: true
-        #   yum_repository:
-        #     name: Hashicorp
-        #     description: Hashicorp official RPM repos
-        #     baseurl: https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
-        #     gpgcheck: yes
-        #     gpgkey: file:///etc/pki/gpg-key
-
-
-      #   - name: Add Hashicorp signing key
-      #     become: true
-      #     apt_key:
-      #       url: "https://apt.releases.hashicorp.com/gpg"
-      #       state: present
-      #   - name: Add the Hashicorp Repo to Ubuntu
-      #     become: true
-      #     apt_repository:
-      #       repo: "deb [arch=amd64] https://apt.releases.hashicorp.com focal main"
-      #       state: present
-
         - name: Install packages and terraform
           become: true
           yum:
             name:
               - yum-utils
               - curl
-              # - terraform
+              - terraform
             state: present
       when:
         - ansible_os_family == "RedHat"
