@@ -37,6 +37,13 @@
           yum:
             update_cache: true
 
+        - name: Add Hashicorp signing key
+          become: true
+          rpm_key:
+            key: https://apt.releases.hashicorp.com/gpg"
+            state: present
+
+
       #   - name: Add Hashicorp signing key
       #     become: true
       #     apt_key:
