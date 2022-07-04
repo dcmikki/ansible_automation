@@ -1,0 +1,21 @@
+---
+- name: Check if "{{ docker_package }}" is already installed
+  shell: "rpm -aq | grep -i {{ docker_package }}"
+  ignore_errors: true
+  register: is_installed
+
+- debug:
+    msg: "The package '{{ docker_package }}' was already installed"
+  when: (is_installed.rc == 0)
+
+- debug:
+    msg: "The package '{{ docker_package }}' is snot installed"
+  when:
+    - (is_installed.rc != 0)
+    - (ansible_distribution == "CentOS")
+
+- debug:
+    msg: "Starting with the installation of '{{ docker_package }}' ........"
+  when:
+    - (is_installed.rc != 0)
+    - (ansible_distribution == "CentOS")

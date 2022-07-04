@@ -1,0 +1,10 @@
+---
+- include: pre_install.yml
+
+- block:
+    - include: uninstall_old_docker_versions.yml
+    - include: system_requirements.yml
+    - include: install_docker_ce.yml
+  when:
+    - ansible_distribution == "CentoOS"
+    - ansible_distribution_major_version == "7"

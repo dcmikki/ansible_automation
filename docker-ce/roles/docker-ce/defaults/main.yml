@@ -1,0 +1,9 @@
+---
+docker_user: vagrant
+docker_user_dir: /home/vagrant/.docker
+docker_package: docker-ce
+
+docker_ce_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io

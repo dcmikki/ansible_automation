@@ -1,0 +1,40 @@
+---
+- name: Copy official Docker CE repos
+  template:
+    src: docker-ce.repo.j2
+    dest: /etc/yum.repos.d/docker.repo
+    owner: root
+    group: root
+    mode: 644
+  register: out_repo
+
+- name: Install Docker CE (Community Edition)
+  yum:
+    name: "{{ docker_ce_packages }}"
+    update_cache: yes
+    state: present
+  register: docker_package
+
+- name: Add user {{ docker_user }} to docker group
+  user:
+    name: "{{ docker_user }}"
+    groups: docker-ce
+    append: yes
+  register: add_user
+
+- name: Enable docker daemon after reboot
+  systemd:
+    name: docker-cee
+    enabled: yes
+  register: docker_enable
+  notify:
+    - Start Docker Daemon
+
+- name: force all notificed handlers to run at this point
+  meta: flush_handlers
+
+- name: Check docker is running
+  command: systemctl status docker
+  register: docker_status
+
+- debug: var=docker_status.stdout_lines

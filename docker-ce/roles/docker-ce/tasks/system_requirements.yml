@@ -1,0 +1,39 @@
+---
+- name: Install epel repo extra packages
+  yum:
+    name: epel-release
+    state: present
+  when: ansible_distribution == 'CentOS'
+
+- name: Requirements packages before install docker
+  yum:
+    name: [
+      'yum-utils',
+      'yum-config-manager',
+      'lvm2'
+    ]
+    state: present
+    update_cache: yes
+
+- name: Install Extra packages including networking tools
+  yum:
+    state: present
+    name: [
+      'vim',
+      'tree',
+      'nmap',
+      'htop',
+      'net-tools',
+      'telnet',
+      'nc',
+      'curl',
+      'wget',
+      'lsof',
+      'jq',
+      'bind-utils',
+      'traceroute',
+      'tcpdump',
+      'docker-compose',
+      'ncdu',
+      'bash-completion'
+    ]
