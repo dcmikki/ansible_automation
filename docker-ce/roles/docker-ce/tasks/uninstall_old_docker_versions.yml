@@ -1,0 +1,14 @@
+---
+- name: Uninstall old versions of Docker
+  yum:
+    state: absent
+    name: [
+      'docker',
+      'docker-client',
+      'docker-client-latest',
+      'docker-common',
+      'docker-latest',
+      'docker-latest-logrotate',
+      'docker-logrotate',
+      'docker-engine'
+    ]
