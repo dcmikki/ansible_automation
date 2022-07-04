@@ -1,5 +1,5 @@
 ---
-- name: Unsinstall old versions of Docker
+- name: Uninstall old versions of Docker
   yum:
     state: absent
     name: [

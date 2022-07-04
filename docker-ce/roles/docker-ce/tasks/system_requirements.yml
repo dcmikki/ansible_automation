@@ -9,7 +9,7 @@
   yum:
     name: [
       'yum-utils',
-      'yum-config-manager',
+      'device-mapper-persistent-data',
       'lvm2'
     ]
     state: present

@@ -18,13 +18,13 @@
 - name: Add user {{ docker_user }} to docker group
   user:
     name: "{{ docker_user }}"
-    groups: docker-ce
+    groups: docker
     append: yes
   register: add_user
 
 - name: Enable docker daemon after reboot
   systemd:
-    name: docker-cee
+    name: docker
     enabled: yes
   register: docker_enable
   notify:

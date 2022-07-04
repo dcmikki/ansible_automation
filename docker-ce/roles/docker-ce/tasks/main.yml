@@ -6,5 +6,5 @@
     - include: system_requirements.yml
     - include: install_docker_ce.yml
   when:
-    - ansible_distribution == "CentoOS"
+    - ansible_distribution == "CentOS"
     - ansible_distribution_major_version == "7"
