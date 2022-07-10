@@ -33,7 +33,6 @@
       'bind-utils',
       'traceroute',
       'tcpdump',
-      'docker-compose',
       'ncdu',
       'bash-completion'
     ]
