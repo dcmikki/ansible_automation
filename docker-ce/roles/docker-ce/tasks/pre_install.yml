@@ -12,10 +12,10 @@
     msg: "The package '{{ docker_package }}' is snot installed"
   when:
     - (is_installed.rc != 0)
-    - (ansible_distribution == "CentOS")
+    - (ansible_distribution == "Rocky")
 
 - debug:
     msg: "Starting with the installation of '{{ docker_package }}' ........"
   when:
     - (is_installed.rc != 0)
-    - (ansible_distribution == "CentOS")
+    - (ansible_distribution == "Rocky")
